@@ -5,10 +5,10 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const data = await fetch(
-    `https://api.typeform.com/forms/${process.env.NEXT_FORM_ID}/responses?included_response_ids=${params.id}`,
+    `https://api.typeform.com/forms/${process.env.NEXT_PUBLIC_FORM_ID}/responses?included_response_ids=${params.id}`,
     {
       headers: {
-        Authorization: `Bearer ${process.env.NEXT_BEARER}`,
+        Authorization: `Bearer ${process.env.BEARER}`,
         contentType: "application/json",
       },
     }

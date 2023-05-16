@@ -9,7 +9,7 @@ export const FormWidget = ({
   return (
     <div>
       <Widget
-        id={process.env.PUBLIC_NEXT_FORM_ID || ""}
+        id={process.env.NEXT_PUBLIC_FORM_ID || ""}
         style={{ width: "100%", height: "90vh" }}
         className="my-form"
         onSubmit={({ responseId }) => callback(responseId)}
