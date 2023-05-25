@@ -13,6 +13,18 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+    colors: {
+      "nua-white-main": "#FEFEFE",
+      "nua-purple-main": "#311868",
+      "nua-purple-secondary": "#5325a0",
+      "nua-purple-aux": "#9f7eee",
+      "nua-green-secondary": "#2f9ea2",
+      "nua-green-aux": "#92d5ce",
+    },
+    fontFamily: {
+      title: ["Century Gothic", "sans-serif"],
+      text: ["Raleway", "sans-serif"],
+    },
   },
   plugins: ["@tailwindcss/jit"],
 };
