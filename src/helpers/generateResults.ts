@@ -4,6 +4,7 @@ import {
   mentalRefs,
   physicalRefs,
   financialRefs,
+  burnOutRefs,
 } from "@/data/scores";
 import { Answer, AttributeRefs, Attributes, Results } from "@/types/types";
 
@@ -17,6 +18,7 @@ export const getScores = (answers: Answer[]): Results => {
       [Attributes.MENTAL]: 0,
       [Attributes.PHYSICAL]: 0,
       [Attributes.FINANCIAL]: 0,
+      [Attributes.BURNOUT]: 0,
     },
   };
 
@@ -35,6 +37,7 @@ export const getScores = (answers: Answer[]): Results => {
     addAttributeScore(mentalRefs, field.ref, results, number);
     addAttributeScore(physicalRefs, field.ref, results, number);
     addAttributeScore(financialRefs, field.ref, results, number);
+    addAttributeScore(burnOutRefs, field.ref, results, number);
   });
   return results;
 };

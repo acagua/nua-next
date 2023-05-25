@@ -6,6 +6,7 @@ export enum Attributes {
   MENTAL = "mental",
   PHYSICAL = "physical",
   FINANCIAL = "financial",
+  BURNOUT = "burnout",
 }
 
 type AttributeScore = { [key in Attributes]: number };
