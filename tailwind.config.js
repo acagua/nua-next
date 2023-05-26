@@ -18,8 +18,10 @@ module.exports = {
       "nua-purple-main": "#311868",
       "nua-purple-secondary": "#5325a0",
       "nua-purple-aux": "#9f7eee",
+      "nua-purple-aux-transparent": "rgba(159,126,238, 0.5)",
       "nua-green-secondary": "#2f9ea2",
       "nua-green-aux": "#92d5ce",
+      "nua-green-aux-transparent": "rgba(146,213,206,0.5)",
     },
     fontFamily: {
       title: ["Century Gothic", "sans-serif"],

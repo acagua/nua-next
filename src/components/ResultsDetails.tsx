@@ -64,12 +64,12 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
   };
   return (
     <>
-      <nav className="top-0 sticky  w-full">
+      <nav className="top-0 sticky w-full z-10">
         <div className="flex flex-row w-full p-4 h-32 justify-center bg-nua-white-main border-b-2 border-nua-purple-main">
           <Image src={LogoIcon} alt="icon" />
         </div>
       </nav>
-      <div className="pt-3 flex flex-col w-[45vw] min-w-[400px] flex-grow justify-center items-center">
+      <div className="p-3 flex flex-col w-[45vw] min-w-[400px] flex-grow justify-center items-center">
         <h1 className="text-2xl font-title p-4">
           {name} aquí están tus resultados!
         </h1>
