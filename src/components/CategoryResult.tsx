@@ -41,7 +41,7 @@ export const CategoryResult = ({
   //TODO Pasar puntajes a porcentaje
 
   return (
-    <div className="p-4 m-2 rounded-md border-2 text-justify w-full">
+    <div className="p-4 m-2 rounded-md border-2 border-nua-purple-secondary text-justify w-full">
       <div className="flex justify-between" onClick={handleOnClick}>
         <span className="text-lg font-title font-bold">{title}</span>
         <span
@@ -50,7 +50,7 @@ export const CategoryResult = ({
           {tagName}
         </span>
         <Image
-          className={`inline ml-auto ${
+          className={`inline ml-auto bg-nua-purple-aux-transparent rounded-full ${
             toggled ? "" : "-rotate-90"
           } transition-all duration-500`}
           src={ArrowIcon}
