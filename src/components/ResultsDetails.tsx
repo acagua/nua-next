@@ -6,11 +6,19 @@ import LogoIcon from "/public/logo.svg";
 import { CategoryResult } from "./CategoryResult";
 import { Results } from "../types/types";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import { totalScore } from "@/data/scores";
+import {
+  burnoutScoreMessage,
+  emotionalScoreMessage,
+  financialScoreMessage,
+  mentalScoreMessage,
+  physicalScoreMessage,
+  relationalScoreMessage,
+  totalScoreMessage,
+} from "@/data/scores";
 
 export const ResultsDetails = ({ data }: { data: Results }) => {
   const { name, attributes } = data;
-  console.log(attributes);
+  console.log({ attributes });
   const colors = {
     low: "#92d5ce",
     medium: "#9f7eee",
@@ -44,13 +52,37 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
           />
         </div>
         <p className="text-lg font-title font-bold"> Calificación general </p>
-        <p className="font-text"> {totalScore.high}</p>
-        <CategoryResult score={attributes.relational} title="Relacional" />
-        <CategoryResult score={attributes.emotional} title="Emocional" />
-        <CategoryResult score={attributes.mental} title="Mental" />
-        <CategoryResult score={attributes.physical} title="Físico" />
-        <CategoryResult score={attributes.financial} title="Financiero" />
-        <CategoryResult score={attributes.burnout} title="Burnout" />
+        <p className="font-text"> {totalScoreMessage.high}</p>
+        <CategoryResult
+          result={attributes.relational}
+          scoreMessages={relationalScoreMessage}
+          title="Relacional"
+        />
+        <CategoryResult
+          result={attributes.emotional}
+          scoreMessages={emotionalScoreMessage}
+          title="Emocional"
+        />
+        <CategoryResult
+          result={attributes.mental}
+          scoreMessages={mentalScoreMessage}
+          title="Mental"
+        />
+        <CategoryResult
+          result={attributes.physical}
+          scoreMessages={physicalScoreMessage}
+          title="Físico"
+        />
+        <CategoryResult
+          result={attributes.financial}
+          scoreMessages={financialScoreMessage}
+          title="Financiero"
+        />
+        <CategoryResult
+          result={attributes.burnout}
+          scoreMessages={burnoutScoreMessage}
+          title="Burnout"
+        />
       </div>
     </>
   );

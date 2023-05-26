@@ -8,12 +8,12 @@ export const getScores = (answers: Answer[]): Results => {
     name: "",
     // email: "",
     attributes: {
-      [Attributes.RELATIONAL]: 0,
-      [Attributes.EMOTIONAL]: 0,
-      [Attributes.MENTAL]: 0,
-      [Attributes.PHYSICAL]: 0,
-      [Attributes.FINANCIAL]: 0,
-      [Attributes.BURNOUT]: 0,
+      [Attributes.RELATIONAL]: { min: 6, max: 30, score: 0, low: 14, high: 25 },
+      [Attributes.EMOTIONAL]: { min: 6, max: 30, score: 0, low: 14, high: 25 },
+      [Attributes.MENTAL]: { min: 6, max: 30, score: 0, low: 14, high: 25 },
+      [Attributes.PHYSICAL]: { min: 6, max: 30, score: 0, low: 14, high: 25 },
+      [Attributes.FINANCIAL]: { min: 6, max: 30, score: 0, low: 14, high: 25 },
+      [Attributes.BURNOUT]: { min: 10, max: 50, score: 0, low: 24, high: 41 },
     },
   };
 
@@ -40,7 +40,7 @@ const addAttributeScore = (
 ) => {
   attributeRefs.forEach((attributeRef) => {
     if (attributeRef.id === ref) {
-      results.attributes[attributeRef.type] += attributeRef.positive
+      results.attributes[attributeRef.type].score += attributeRef.positive
         ? score
         : NEGATIVE_BASE - score;
     }

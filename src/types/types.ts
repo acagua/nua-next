@@ -9,7 +9,17 @@ export enum Attributes {
   BURNOUT = "burnout",
 }
 
-type AttributeScore = { [key in Attributes]: number };
+export type Score = {
+  min: number;
+  max: number;
+  score: number;
+  low: number;
+  high: number;
+};
+
+type AttributeScore = {
+  [key in Attributes]: Score;
+};
 
 export type Results = {
   name: string;
@@ -21,6 +31,12 @@ export type AttributeRefs = {
   id: string;
   positive: boolean;
   type: Attributes;
+};
+
+export type ScoreMessages = {
+  low: string;
+  medium: string;
+  high: string;
 };
 
 export type TypeFormResponse = {
