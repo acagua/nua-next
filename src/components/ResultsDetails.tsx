@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import LogoIcon from "/public/logo.svg";
+import LogoIcon from "/public/logo2.svg";
 import { CategoryResult } from "./CategoryResult";
 import { Results } from "../types/types";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -25,10 +25,12 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
   };
   return (
     <>
-      <div className="flex flex-row w-full p-4 h-24 justify-center bg-nua-purple-main">
-        <Image src={LogoIcon} alt="icon" />
-      </div>
-      <div className="flex flex-col w-[45vw] min-w-[400px] flex-grow">
+      <nav className="top-0 sticky  w-full">
+        <div className="flex flex-row w-full p-4 h-32 justify-center bg-nua-white-main border-b-2 border-nua-purple-main">
+          <Image src={LogoIcon} alt="icon" />
+        </div>
+      </nav>
+      <div className="pt-3 flex flex-col w-[45vw] min-w-[400px] flex-grow">
         <h1 className="text-2xl font-title">
           {name} aquí están tus resultados!
         </h1>
