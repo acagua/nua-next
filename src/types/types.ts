@@ -23,7 +23,7 @@ type AttributeScore = {
 
 export type Results = {
   name: string;
-  // email: string;
+  email: string;
   attributes: AttributeScore;
 };
 

@@ -1,8 +1,6 @@
-import { FormWidget } from "@/components/FormWidget";
-import { RadarGraph } from "@/components/RadarGraph";
 import { ResultsDetails } from "@/components/ResultsDetails";
 import { getScores } from "@/helpers/generateResults";
-import { Results, TypeFormResponse } from "@/types/types";
+import { TypeFormResponse } from "@/types/types";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const scores = await getResults(params.id);

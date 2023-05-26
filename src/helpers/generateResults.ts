@@ -6,7 +6,7 @@ const NEGATIVE_BASE = 6;
 export const getScores = (answers: Answer[]): Results => {
   const results: Results = {
     name: "",
-    // email: "",
+    email: "",
     attributes: {
       [Attributes.RELATIONAL]: { min: 6, max: 30, score: 0, low: 14, high: 25 },
       [Attributes.EMOTIONAL]: { min: 6, max: 30, score: 0, low: 14, high: 25 },
@@ -18,15 +18,15 @@ export const getScores = (answers: Answer[]): Results => {
   };
 
   answers.forEach((answer) => {
-    const { field, text, number /*, email*/ } = answer;
+    const { field, text, number, email } = answer;
     if (field.ref === "01H0TC37RA40ADR9G6BWYBS9HN") {
       results.name = text;
       return;
     }
-    // if (field.ref === "feb13484-0bce-4cab-a4f1-1ff30e5d0cfd") {
-    //   results.email = email;
-    //   return;
-    // }
+    if (field.ref === "feb13484-0bce-4cab-a4f1-1ff30e5d0cfd") {
+      results.email = email;
+      return;
+    }
     addAttributeScore(attributesRefs, field.ref, results, number);
   });
   return results;

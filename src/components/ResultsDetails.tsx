@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import PremiumIcon from "/public/Premium.svg";
 import LogoIcon from "/public/logo.svg";
 import { CategoryResult } from "./CategoryResult";
 import { Results } from "../types/types";
@@ -18,7 +17,7 @@ import {
 
 export const ResultsDetails = ({ data }: { data: Results }) => {
   const { name, attributes } = data;
-  console.log({ attributes });
+
   const colors = {
     low: "#92d5ce",
     medium: "#9f7eee",
@@ -33,7 +32,6 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
         <h1 className="text-2xl font-title">
           {name} aquí están tus resultados!
         </h1>
-        {/* <Image src={PremiumIcon} alt="icon" /> */}
         <div className="w-[200px]">
           <CircularProgressbar
             value={80}
