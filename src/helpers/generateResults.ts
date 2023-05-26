@@ -1,17 +1,12 @@
-import {
-  relationalRefs,
-  emotionalRefs,
-  mentalRefs,
-  physicalRefs,
-  financialRefs,
-  burnOutRefs,
-} from "@/data/scores";
+import { attributesRefs } from "@/data/scores";
 import { Answer, AttributeRefs, Attributes, Results } from "@/types/types";
+
+const NEGATIVE_BASE = 6;
 
 export const getScores = (answers: Answer[]): Results => {
   const results: Results = {
     name: "",
-    email: "",
+    // email: "",
     attributes: {
       [Attributes.RELATIONAL]: 0,
       [Attributes.EMOTIONAL]: 0,
@@ -23,32 +18,31 @@ export const getScores = (answers: Answer[]): Results => {
   };
 
   answers.forEach((answer) => {
-    const { field, type, text, email, number } = answer;
-    if (type === "text") {
+    const { field, text, number /*, email*/ } = answer;
+    if (field.ref === "01H0TC37RA40ADR9G6BWYBS9HN") {
       results.name = text;
       return;
     }
-    if (type === "email") {
-      results.email = email;
-      return;
-    }
-    addAttributeScore(relationalRefs, field.ref, results, number);
-    addAttributeScore(emotionalRefs, field.ref, results, number);
-    addAttributeScore(mentalRefs, field.ref, results, number);
-    addAttributeScore(physicalRefs, field.ref, results, number);
-    addAttributeScore(financialRefs, field.ref, results, number);
-    addAttributeScore(burnOutRefs, field.ref, results, number);
+    // if (field.ref === "feb13484-0bce-4cab-a4f1-1ff30e5d0cfd") {
+    //   results.email = email;
+    //   return;
+    // }
+    addAttributeScore(attributesRefs, field.ref, results, number);
   });
   return results;
 };
 
 const addAttributeScore = (
-  attributeRefs: AttributeRefs,
+  attributeRefs: AttributeRefs[],
   ref: string,
   results: Results,
   score: number
 ) => {
-  if (attributeRefs.refs.includes(ref)) {
-    results.attributes[attributeRefs.type] += score;
-  }
+  attributeRefs.forEach((attributeRef) => {
+    if (attributeRef.id === ref) {
+      results.attributes[attributeRef.type] += attributeRef.positive
+        ? score
+        : NEGATIVE_BASE - score;
+    }
+  });
 };

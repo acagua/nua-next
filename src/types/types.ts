@@ -13,11 +13,15 @@ type AttributeScore = { [key in Attributes]: number };
 
 export type Results = {
   name: string;
-  email: string;
+  // email: string;
   attributes: AttributeScore;
 };
 
-export type AttributeRefs = { type: Attributes; refs: string[] };
+export type AttributeRefs = {
+  id: string;
+  positive: boolean;
+  type: Attributes;
+};
 
 export type TypeFormResponse = {
   total_items: number;

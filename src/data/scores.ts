@@ -7,81 +7,208 @@ export enum Scores {
   TOTAL_HIGH = 201,
 }
 
-export const relationalRefs: AttributeRefs = {
-  type: Attributes.RELATIONAL,
-  refs: [
-    "7bc8d7e3-a30c-45d1-be3b-79e57118f6b5",
-    "7c61f94d-7983-41de-9646-b940e5cf2100",
-    "8bc5bea4-1c0d-4902-a4d4-fa931358f439",
-    "bcf59e4a-8597-4f18-bede-5911345908e2",
-    "3001a874-3b1d-4453-9082-1fc21d58658b",
-    "60dd6649-6ca8-4e61-8c9a-4279e505b9f7",
-  ],
-};
-
-export const emotionalRefs = {
-  type: Attributes.EMOTIONAL,
-  refs: [
-    "45404b55-bb58-4961-8cce-a760b7ff7ec2",
-    "5a3d7cd8-59da-46df-a861-4e63e4313cc3",
-    "e37d7711-c5aa-4d11-9139-eb4e5ceee04b",
-    "a621d494-2e71-4a0f-b174-b58ae9b4983f",
-    "77ef6b90-41a5-49f2-9252-3f9b9cd8d036",
-    "d162820c-8a7b-41db-9eab-10aa96f27cd0",
-  ],
-};
-
-export const mentalRefs = {
-  type: Attributes.MENTAL,
-  refs: [
-    "d21f2041-680c-4693-bff2-c60c1f4254a4",
-    "24149c3f-8bc7-43af-b996-2131f9f40a33",
-    "cab76abc-5e14-4715-bf90-f0bdec1d46d9",
-    "2c350609-3cbb-481a-a262-499644797922",
-    "3d1c42c2-0733-4e49-a4ce-fa79bdd9a5a7",
-    "5ffd3a24-9383-4054-854f-b5fde0bead02",
-  ],
-};
-
-export const physicalRefs = {
-  type: Attributes.PHYSICAL,
-  refs: [
-    "f7917771-4a34-4086-915f-1d1f715ff2ba",
-    "55cd8a79-0dd3-431e-85ce-bac4dbcd697e",
-    "adfa1e1e-6128-4524-a3fa-8f0fbdc1b3cb",
-    "52d37a22-8edd-4fba-b06e-94bee3cabb82",
-    "887b4cea-daad-4f5b-bcbe-a346faab50f4",
-    "aaf87fea-e57b-4d43-b5af-176623963ca1",
-  ],
-};
-
-export const financialRefs = {
-  type: Attributes.FINANCIAL,
-  refs: [
-    "f418c1ec-4445-4641-9daa-adbaa8bdff59",
-    "bc794b22-77b9-4e23-a086-8bb648bc87a1",
-    "2af086ff-6f6b-4ced-81fe-5c78361ec989",
-    "cb99d9a0-62cd-4035-bba5-1c37a40558cb",
-    "0e284d11-4cbb-41ea-bfa8-2b9cac491960",
-    "6836d717-6435-4a73-90a7-98fe21039f9a",
-  ],
-};
-
-export const burnOutRefs = {
-  type: Attributes.BURNOUT,
-  refs: [
-    "7ea10a64-ffff-48f2-aaee-d73a3e64f47f",
-    "c704d226-227a-4ace-969d-108ebee263e9",
-    "b16b8f5f-8568-4a21-b876-e089c19aa0f7",
-    "972cb31b-ce91-442d-9c27-3ef2de8c8aa7",
-    "9f925f4d-9cd6-43f6-a39f-334d384ec8c8",
-    "6b4e9791-5696-4075-bae8-93463f6b9870",
-    "c20ef5cc-6a7b-45e9-b665-2698da83655f",
-    "7f90b662-be55-4838-a995-74d717eb76a4",
-    "fe2f0f04-88b3-4edb-b4c9-9a41ded25fb8",
-    "483446fa-2828-4728-b2aa-de421a1849b8",
-  ],
-};
+export const attributesRefs: AttributeRefs[] = [
+  {
+    id: "7bc8d7e3-a30c-45d1-be3b-79e57118f6b5",
+    positive: true,
+    type: Attributes.RELATIONAL,
+  },
+  {
+    id: "7c61f94d-7983-41de-9646-b940e5cf2100",
+    positive: false,
+    type: Attributes.RELATIONAL,
+  },
+  {
+    id: "8bc5bea4-1c0d-4902-a4d4-fa931358f439",
+    positive: true,
+    type: Attributes.RELATIONAL,
+  },
+  {
+    id: "bcf59e4a-8597-4f18-bede-5911345908e2",
+    positive: false,
+    type: Attributes.RELATIONAL,
+  },
+  {
+    id: "3001a874-3b1d-4453-9082-1fc21d58658b",
+    positive: false,
+    type: Attributes.RELATIONAL,
+  },
+  {
+    id: "60dd6649-6ca8-4e61-8c9a-4279e505b9f7",
+    positive: true,
+    type: Attributes.RELATIONAL,
+  },
+  {
+    id: "45404b55-bb58-4961-8cce-a760b7ff7ec2",
+    positive: true,
+    type: Attributes.EMOTIONAL,
+  },
+  {
+    id: "5a3d7cd8-59da-46df-a861-4e63e4313cc3",
+    positive: true,
+    type: Attributes.EMOTIONAL,
+  },
+  {
+    id: "e37d7711-c5aa-4d11-9139-eb4e5ceee04b",
+    positive: false,
+    type: Attributes.EMOTIONAL,
+  },
+  {
+    id: "a621d494-2e71-4a0f-b174-b58ae9b4983f",
+    positive: true,
+    type: Attributes.EMOTIONAL,
+  },
+  {
+    id: "77ef6b90-41a5-49f2-9252-3f9b9cd8d036",
+    positive: false,
+    type: Attributes.EMOTIONAL,
+  },
+  {
+    id: "d162820c-8a7b-41db-9eab-10aa96f27cd0",
+    positive: false,
+    type: Attributes.EMOTIONAL,
+  },
+  {
+    id: "d21f2041-680c-4693-bff2-c60c1f4254a4",
+    positive: true,
+    type: Attributes.MENTAL,
+  },
+  {
+    id: "24149c3f-8bc7-43af-b996-2131f9f40a33",
+    positive: false,
+    type: Attributes.MENTAL,
+  },
+  {
+    id: "cab76abc-5e14-4715-bf90-f0bdec1d46d9",
+    positive: false,
+    type: Attributes.MENTAL,
+  },
+  {
+    id: "2c350609-3cbb-481a-a262-499644797922",
+    positive: true,
+    type: Attributes.MENTAL,
+  },
+  {
+    id: "3d1c42c2-0733-4e49-a4ce-fa79bdd9a5a7",
+    positive: false,
+    type: Attributes.MENTAL,
+  },
+  {
+    id: "5ffd3a24-9383-4054-854f-b5fde0bead02",
+    positive: false,
+    type: Attributes.MENTAL,
+  },
+  {
+    id: "f7917771-4a34-4086-915f-1d1f715ff2ba",
+    positive: true,
+    type: Attributes.PHYSICAL,
+  },
+  {
+    id: "55cd8a79-0dd3-431e-85ce-bac4dbcd697e",
+    positive: false,
+    type: Attributes.PHYSICAL,
+  },
+  {
+    id: "adfa1e1e-6128-4524-a3fa-8f0fbdc1b3cb",
+    positive: true,
+    type: Attributes.PHYSICAL,
+  },
+  {
+    id: "52d37a22-8edd-4fba-b06e-94bee3cabb82",
+    positive: false,
+    type: Attributes.PHYSICAL,
+  },
+  {
+    id: "887b4cea-daad-4f5b-bcbe-a346faab50f4",
+    positive: false,
+    type: Attributes.PHYSICAL,
+  },
+  {
+    id: "aaf87fea-e57b-4d43-b5af-176623963ca1",
+    positive: true,
+    type: Attributes.PHYSICAL,
+  },
+  {
+    id: "f418c1ec-4445-4641-9daa-adbaa8bdff59",
+    positive: true,
+    type: Attributes.FINANCIAL,
+  },
+  {
+    id: "bc794b22-77b9-4e23-a086-8bb648bc87a1",
+    positive: true,
+    type: Attributes.FINANCIAL,
+  },
+  {
+    id: "2af086ff-6f6b-4ced-81fe-5c78361ec989",
+    positive: false,
+    type: Attributes.FINANCIAL,
+  },
+  {
+    id: "cb99d9a0-62cd-4035-bba5-1c37a40558cb",
+    positive: false,
+    type: Attributes.FINANCIAL,
+  },
+  {
+    id: "0e284d11-4cbb-41ea-bfa8-2b9cac491960",
+    positive: true,
+    type: Attributes.FINANCIAL,
+  },
+  {
+    id: "6836d717-6435-4a73-90a7-98fe21039f9a",
+    positive: false,
+    type: Attributes.FINANCIAL,
+  },
+  {
+    id: "7ea10a64-ffff-48f2-aaee-d73a3e64f47f",
+    positive: false,
+    type: Attributes.BURNOUT,
+  },
+  {
+    id: "c704d226-227a-4ace-969d-108ebee263e9",
+    positive: false,
+    type: Attributes.BURNOUT,
+  },
+  {
+    id: "b16b8f5f-8568-4a21-b876-e089c19aa0f7",
+    positive: false,
+    type: Attributes.BURNOUT,
+  },
+  {
+    id: "972cb31b-ce91-442d-9c27-3ef2de8c8aa7",
+    positive: false,
+    type: Attributes.BURNOUT,
+  },
+  {
+    id: "9f925f4d-9cd6-43f6-a39f-334d384ec8c8",
+    positive: false,
+    type: Attributes.BURNOUT,
+  },
+  {
+    id: "6b4e9791-5696-4075-bae8-93463f6b9870",
+    positive: false,
+    type: Attributes.BURNOUT,
+  },
+  {
+    id: "c20ef5cc-6a7b-45e9-b665-2698da83655f",
+    positive: false,
+    type: Attributes.BURNOUT,
+  },
+  {
+    id: "7f90b662-be55-4838-a995-74d717eb76a4",
+    positive: false,
+    type: Attributes.BURNOUT,
+  },
+  {
+    id: "fe2f0f04-88b3-4edb-b4c9-9a41ded25fb8",
+    positive: false,
+    type: Attributes.BURNOUT,
+  },
+  {
+    id: "483446fa-2828-4728-b2aa-de421a1849b8",
+    positive: false,
+    type: Attributes.BURNOUT,
+  },
+];
 
 type ScoreMessage = {
   low: string;
