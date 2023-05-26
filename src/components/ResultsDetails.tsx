@@ -15,6 +15,10 @@ import {
   totalScoreMessage,
 } from "@/data/scores";
 
+const LOW_TOTAL_SCORE = 84;
+const MEDIUM_TOTAL_SCORE = 161;
+const MAX_TOTAL_SCORE = 200;
+
 export const ResultsDetails = ({ data }: { data: Results }) => {
   const { name, attributes } = data;
 
@@ -23,6 +27,25 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
     medium: "#9f7eee",
     high: "#5325a0",
   };
+
+  const { relational, emotional, mental, physical, financial, burnout } =
+    attributes;
+  const totalScore =
+    relational.score +
+    emotional.score +
+    mental.score +
+    physical.score +
+    financial.score +
+    burnout.score;
+
+  let totalMessage = totalScoreMessage.low;
+  if (totalScore > LOW_TOTAL_SCORE) {
+    totalMessage = totalScoreMessage.medium;
+  }
+  if (totalScore > MEDIUM_TOTAL_SCORE) {
+    totalMessage = totalScoreMessage.high;
+  }
+
   return (
     <>
       <nav className="top-0 sticky  w-full">
@@ -36,8 +59,8 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
         </h1>
         <div className="w-[200px]">
           <CircularProgressbar
-            value={80}
-            text={`${80}`}
+            value={totalScore}
+            text={`${totalScore}`}
             styles={buildStyles({
               rotation: 0,
               strokeLinecap: "round",
@@ -48,11 +71,11 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
               trailColor: "#d6d6d6",
               backgroundColor: "#3e98c7",
             })}
-            maxValue={100}
+            maxValue={MAX_TOTAL_SCORE}
           />
         </div>
         <p className="text-lg font-title font-bold"> Calificación general </p>
-        <p className="font-text"> {totalScoreMessage.high}</p>
+        <p className="font-text"> {totalMessage}</p>
         <CategoryResult
           result={attributes.relational}
           scoreMessages={relationalScoreMessage}
