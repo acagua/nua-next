@@ -61,8 +61,8 @@ export const CategoryResult = ({
           toggled ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         } `}
       >
-        <div className="flex flex-row w-full flex-wrap min-h-0">
-          <div className="w-[15rem] p-5">
+        <div className="flex flex-row w-full items-center min-h-0">
+          <div className="min-w-[15rem] p-5">
             <CircularProgressbar
               value={result.score}
               text={`${result.score}`}
