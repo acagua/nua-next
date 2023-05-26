@@ -36,8 +36,7 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
     mental.score +
     physical.score +
     financial.score +
-    burnout.score +
-    52;
+    burnout.score;
 
   let color = Colors.LOW;
   let totalMessage = totalScoreMessage.low;
