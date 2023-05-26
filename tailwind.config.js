@@ -27,6 +27,9 @@ module.exports = {
       title: ["Century Gothic", "sans-serif"],
       text: ["Raleway", "sans-serif"],
     },
+    screens: {
+      sm: { max: "680px" },
+    },
   },
   plugins: ["@tailwindcss/jit"],
 };

@@ -38,6 +38,8 @@ export const CategoryResult = ({
     setToggled((prev) => !prev);
   };
 
+  //TODO Pasar puntajes a porcentaje
+
   return (
     <div className="p-4 m-2 rounded-md border-2 text-justify w-full">
       <div className="flex justify-between" onClick={handleOnClick}>
@@ -61,11 +63,11 @@ export const CategoryResult = ({
           toggled ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         } `}
       >
-        <div className="flex flex-row w-full items-center min-h-0">
-          <div className="min-w-[15rem] p-5">
+        <div className="flex flex-row sm:flex-col w-full items-center sm:justify-center min-h-0">
+          <div className="min-w-[15rem] max-w-[15rem] p-5">
             <CircularProgressbar
-              value={result.score}
-              text={`${result.score}`}
+              value={(result.score / result.max) * 100}
+              text={`${Math.round((result.score / result.max) * 100)}%`}
               styles={buildStyles({
                 rotation: 0,
                 strokeLinecap: "round",
@@ -76,7 +78,7 @@ export const CategoryResult = ({
                 trailColor: "#d6d6d6",
                 backgroundColor: "#3e98c7",
               })}
-              maxValue={result.max}
+              maxValue={100}
             />
           </div>
           <p className="font-text flex-grow p-2 min-w-[15rem]">{text}</p>

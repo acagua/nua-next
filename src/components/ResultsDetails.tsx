@@ -77,8 +77,8 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
           <PremiumScore />
           <div className="col-span-full row-span-full">
             <CircularProgressbar
-              value={totalScore}
-              text={`${totalScore}`}
+              value={(totalScore / MAX_TOTAL_SCORE) * 100}
+              text={`${Math.round((totalScore / MAX_TOTAL_SCORE) * 100)}%`}
               styles={buildStyles({
                 rotation: 0,
                 strokeLinecap: "round",
@@ -89,7 +89,7 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
                 trailColor: "#d6d6d6",
                 backgroundColor: "#3e98c7",
               })}
-              maxValue={MAX_TOTAL_SCORE}
+              maxValue={100}
             />
           </div>
         </div>
