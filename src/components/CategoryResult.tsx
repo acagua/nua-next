@@ -34,29 +34,28 @@ export const CategoryResult = ({
   }
 
   const handleOnClick = () => {
-    console.log("click");
     setToggled((prev) => !prev);
   };
 
-  //TODO Pasar puntajes a porcentaje
-
   return (
-    <div className="p-4 m-2 rounded-md border-2 border-nua-purple-secondary text-justify w-full">
+    <div className="p-8 mb-8 rounded-md border-2 border-nua-purple-aux text-justify w-full rounded-tr-[4rem] rounded-bl-[4rem]">
       <div className="flex justify-between" onClick={handleOnClick}>
-        <span className="text-lg font-title font-bold">{title}</span>
+        <span className="text-2xl font-title font-bold">{title}</span>
         <span
-          className={`ml-2 font-text text-sm font-bold ${tagStyles} px-2 py-1 rounded-md`}
+          className={`mx-8 my-auto font-text text-xs font-bold ${tagStyles} px-2 py-1 rounded-md`}
         >
           {tagName}
         </span>
-        <Image
-          className={`inline ml-auto bg-nua-purple-aux-transparent rounded-full ${
-            toggled ? "" : "-rotate-90"
-          } transition-all duration-500`}
-          src={ArrowIcon}
-          alt="arrow-icon"
-          width={30}
-        />
+        <div className="ml-auto border-nua-purple-aux-transparent border-2 rounded-full p-1">
+          <Image
+            className={` ${
+              toggled ? "" : "-rotate-90"
+            } transition-all duration-500`}
+            src={ArrowIcon}
+            alt="arrow-icon"
+            width={30}
+          />
+        </div>
       </div>
       <div
         className={`grid overflow-hidden transition-all duration-500 ${
@@ -81,7 +80,9 @@ export const CategoryResult = ({
               maxValue={100}
             />
           </div>
-          <p className="font-text flex-grow p-2 min-w-[15rem]">{text}</p>
+          <p className="font-text font-thin flex-grow p-2 min-w-[15rem]">
+            {text}
+          </p>
         </div>
       </div>
     </div>

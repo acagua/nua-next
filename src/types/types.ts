@@ -17,7 +17,7 @@ export type Score = {
   high: number;
 };
 
-type AttributeScore = {
+export type AttributeScore = {
   [key in Attributes]: Score;
 };
 
