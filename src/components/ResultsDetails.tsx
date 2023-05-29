@@ -19,7 +19,7 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
   return (
     <>
       <Navbar />
-      <div className="px-32 py-20 flex flex-col w-[45vw] min-w-[400px] flex-grow justify-center items-center">
+      <div className="px-32 py-20 sm:px-6 sm:py-8 flex flex-col w-[45vw] flex-grow justify-center items-center">
         <MainScore name={name} attributes={attributes} />
         <div className="pt-16 flex flex-col justify-center">
           <CategoryResult

@@ -45,11 +45,11 @@ export const MainScore = ({
 
   return (
     <>
-      <h1 className="text-4xl font-title font-bold p-4 text-nua-purple-main">
+      <h1 className="text-4xl sm:text-2xl font-title font-bold p-4 text-nua-purple-main">
         {name}, aquí están tus resultados
       </h1>
-      <div className="flex flex-row items-center">
-        <div className="grid place-items-center w-[18rem] m-8">
+      <div className="flex flex-row sm:flex-col sm:justify-center items-center">
+        <div className="grid place-items-center w-[18rem] sm:w-[12rem] m-8">
           <CircularProgressbar
             value={(totalScore / MAX_TOTAL_SCORE) * 100}
             text={`${Math.round((totalScore / MAX_TOTAL_SCORE) * 100)}%`}
@@ -67,10 +67,13 @@ export const MainScore = ({
           />
         </div>
         <div>
-          <p className="text-2xl font-title font-bold max-w-[15rem]">
+          <p className="text-2xl font-title sm:text-center font-bold max-w-[15rem]">
             Tu puntaje general de Powerskills es
           </p>
-          <p className="font-title font-bold text-4xl" style={{ color }}>
+          <p
+            className="font-title font-bold sm:text-center text-4xl"
+            style={{ color }}
+          >
             {mainScoreTag}
           </p>
         </div>
