@@ -40,7 +40,7 @@ export default function RootLayout({
           </span>
           <span className="col-start-6">
             <p className="font-title font-bold text-xl pb-2">Siguenos</p>
-            <div>
+            <div className="flex gap-2">
               <a
                 href="https://www.facebook.com/profile.php?id=100090857894017"
                 target="_blank"
@@ -59,7 +59,7 @@ export default function RootLayout({
                 rel="noopener noreferrer"
               >
                 <Image
-                  className="inline mx-2"
+                  className="inline"
                   src={InstagramIcon}
                   alt="instagram"
                   height={ICON_SIZE}
