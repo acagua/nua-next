@@ -15,6 +15,7 @@ export type Score = {
   score: number;
   low: number;
   high: number;
+  name: string;
 };
 
 export type AttributeScore = {

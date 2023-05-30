@@ -12,6 +12,7 @@ import {
 } from "@/data/scores";
 import { Navbar } from "./Navbar";
 import { MainScore } from "./MainScore";
+import { RadarGraph } from "./RadarGraph";
 
 export const ResultsDetails = ({ data }: { data: Results }) => {
   const { name, attributes } = data;
@@ -23,35 +24,36 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
         <MainScore name={name} attributes={attributes} />
         <div className="pt-16 flex flex-col justify-center">
           <CategoryResult
+            result={attributes.burnout}
+            scoreMessages={burnoutScoreMessage}
+            title={attributes.burnout.name}
+          />
+          <CategoryResult
             result={attributes.relational}
             scoreMessages={relationalScoreMessage}
-            title="Relacional"
+            title={attributes.relational.name}
           />
           <CategoryResult
             result={attributes.emotional}
             scoreMessages={emotionalScoreMessage}
-            title="Emocional"
+            title={attributes.emotional.name}
           />
           <CategoryResult
             result={attributes.mental}
             scoreMessages={mentalScoreMessage}
-            title="Mental"
+            title={attributes.mental.name}
           />
           <CategoryResult
             result={attributes.physical}
             scoreMessages={physicalScoreMessage}
-            title="Físico"
+            title={attributes.physical.name}
           />
           <CategoryResult
             result={attributes.financial}
             scoreMessages={financialScoreMessage}
-            title="Financiero"
+            title={attributes.financial.name}
           />
-          <CategoryResult
-            result={attributes.burnout}
-            scoreMessages={burnoutScoreMessage}
-            title="Burnout"
-          />
+          <RadarGraph data={data} />
         </div>
       </div>
     </>

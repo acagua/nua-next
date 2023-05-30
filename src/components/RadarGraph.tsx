@@ -7,8 +7,8 @@ import {
   RadialLinearScale,
   PointElement,
   LineElement,
+  Filler,
 } from "chart.js";
-import { useState } from "react";
 import { Radar } from "react-chartjs-2";
 import { Results } from "@/types/types";
 
@@ -22,27 +22,61 @@ export const RadarGraph = ({ data }: Props) => {
     Legend,
     RadialLinearScale,
     PointElement,
-    LineElement
+    LineElement,
+    Filler
   );
+  ChartJS.defaults.font.size = 16;
 
-  const { attributes, email, name } = data;
+  const { attributes } = data;
 
   const dataRadar = {
-    labels: Object.keys(attributes),
+    labels: [
+      attributes.relational.name,
+      attributes.emotional.name,
+      attributes.mental.name,
+      attributes.physical.name,
+      attributes.financial.name,
+      // attributes.burnout.name,
+    ],
     datasets: [
       {
         label: "Resultados",
-        data: Object.values(attributes),
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-        borderColor: "rgba(255, 99, 132, 1)",
-        borderWidth: 3,
+        data: [
+          attributes.relational.score,
+          attributes.emotional.score,
+          attributes.mental.score,
+          attributes.physical.score,
+          attributes.financial.score,
+        ],
+        backgroundColor: "rgb(159,126,238, 0.5)",
+        borderColor: "rgb(159,126,238)",
+        pointBorderColor: "rgb(83, 37, 160)",
+        borderWidth: 2,
+        fill: true,
       },
     ],
   };
+  const options = {
+    elements: {
+      line: {
+        borderWidth: 3,
+      },
+    },
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: {
+          font: {
+            size: 21,
+          },
+        },
+      },
+    },
+  };
 
   return (
-    <div className="w-[45vw] min-w-[500px] flex-grow">
-      <Radar data={dataRadar} options={{ responsive: true }} />
+    <div className="min-h-[40rem]">
+      <Radar data={dataRadar} options={options} />
     </div>
   );
 };
