@@ -22,6 +22,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Vive Nua, vive felicidad </title>
+        <meta property="og:image" content="/public/logo.svg" />
+        <meta property="og:image:type" content="image/svg" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+      </head>
       <body className={inter.className}>
         {children}
         <footer className="h-32 text-md sm:text-xs grid grid-cols-7 items-center bg-nua-purple-secondary text-nua-white-main font-text font-bold">
