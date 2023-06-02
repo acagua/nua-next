@@ -8,8 +8,9 @@ const getAttributeBase = (attribute: Attributes): number => {
   return attributesRefs.filter((attr) => attr.type === attribute).length; //.reduce((acc, curr) => acc + (curr.positive ? curr.score : NEGATIVE_BASE - curr.score), 0),
 };
 
-export const getScores = (answers: Answer[]): Results => {
+export const getScores = (answers: Answer[], id: string): Results => {
   const results: Results = {
+    id,
     name: "",
     email: "",
     attributes: {

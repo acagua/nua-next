@@ -19,6 +19,7 @@
     "eslint-config-next": "13.4.2",
     "lodash": "^4.17.21",
     "next": "13.4.2",
+    "nodemailer": "^6.9.3",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -29,6 +30,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.8",
     "@types/react-gauge-chart": "^0.4.0"
   }
 }

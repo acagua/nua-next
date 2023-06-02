@@ -15,9 +15,10 @@ import {
 import { Navbar } from "./Navbar";
 import { SummarySection } from "./SummarySection";
 import { BurnoutSection } from "./BurnoutSection";
+import { EmailResults } from "./EmailResults";
 
 export const ResultsDetails = ({ data }: { data: Results }) => {
-  const { name, attributes } = data;
+  const { name, attributes, email, id } = data;
 
   const { relational, emotional, mental, physical, financial } = attributes;
   const totalScore =
@@ -92,6 +93,7 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
             title={attributes.financial.name}
           />
         </div>
+        <EmailResults name={name} email={email} reportId={id} />
       </div>
     </>
   );

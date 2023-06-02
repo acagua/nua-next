@@ -35,7 +35,7 @@ async function getResults(id: string) {
       }
     );
     const data: TypeFormResponse = await response.json();
-    const scores = getScores(data.items[0].answers);
+    const scores = getScores(data.items[0].answers, id);
     return scores;
   } catch (error) {
     console.log({ error });
