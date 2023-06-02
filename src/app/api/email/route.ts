@@ -1,31 +1,6 @@
 import { NextResponse } from "next/server";
-import { render } from "@react-email/render";
-import { EmailShareReport } from "../../../emails/ShareReport";
-import { sendMail } from "../../../helpers/email";
+
 import nodemailer from "nodemailer";
-
-export async function GET(
-  _request: Request,
-  { params }: { params: { id: string } }
-) {
-  //   await sendMail("af.cagua1011@gmail.com", "Welcome to NextAPI", {
-  //     html: render(
-  //       EmailShareReport({
-  //         name: "Andy",
-  //         reportId: "https://nua-next.vercel.app/",
-  //       })
-  //     ),
-  //   });
-  //   await sendMail("af.cagua1011@gmail.com", "subject", "bodyyy");
-
-  // Create a SMTP transport object
-
-  // if you don't want to use this transport object anymore, uncomment following line
-  //transport.close(); // close the connection pool
-  //   });
-
-  return NextResponse.json({ response: "sent" }, { status: 200 });
-}
 
 export async function POST(request: Request) {
   const body = await request.json();
