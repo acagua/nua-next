@@ -28,7 +28,7 @@ module.exports = {
       text: ["Raleway", "sans-serif"],
     },
     screens: {
-      sm: { max: "680px" },
+      sm: { max: "1000px" },
     },
   },
   plugins: ["@tailwindcss/jit"],
