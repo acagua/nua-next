@@ -2,6 +2,11 @@ import { attributesRefs } from "@/data/scores";
 import { Answer, AttributeRefs, Attributes, Results } from "@/types/types";
 
 const NEGATIVE_BASE = 6;
+const QUESTION_MAX_SCORE = 5;
+
+const getAttributeBase = (attribute: Attributes): number => {
+  return attributesRefs.filter((attr) => attr.type === attribute).length; //.reduce((acc, curr) => acc + (curr.positive ? curr.score : NEGATIVE_BASE - curr.score), 0),
+};
 
 export const getScores = (answers: Answer[]): Results => {
   const results: Results = {
@@ -9,48 +14,48 @@ export const getScores = (answers: Answer[]): Results => {
     email: "",
     attributes: {
       [Attributes.RELATIONAL]: {
-        min: 6,
-        max: 30,
+        min: getAttributeBase(Attributes.RELATIONAL),
+        max: getAttributeBase(Attributes.RELATIONAL) * QUESTION_MAX_SCORE,
         score: 0,
         low: 14,
         high: 25,
         name: "Social",
       },
       [Attributes.EMOTIONAL]: {
-        min: 6,
-        max: 30,
+        min: getAttributeBase(Attributes.EMOTIONAL),
+        max: getAttributeBase(Attributes.EMOTIONAL) * QUESTION_MAX_SCORE,
         score: 0,
         low: 14,
         high: 25,
         name: "Emocional",
       },
       [Attributes.MENTAL]: {
-        min: 6,
-        max: 30,
+        min: getAttributeBase(Attributes.MENTAL),
+        max: getAttributeBase(Attributes.MENTAL) * QUESTION_MAX_SCORE,
         score: 0,
         low: 14,
         high: 25,
         name: "Cognitivo",
       },
       [Attributes.PHYSICAL]: {
-        min: 6,
-        max: 30,
+        min: getAttributeBase(Attributes.PHYSICAL),
+        max: getAttributeBase(Attributes.PHYSICAL) * QUESTION_MAX_SCORE,
         score: 0,
         low: 14,
         high: 25,
         name: "Físico",
       },
       [Attributes.FINANCIAL]: {
-        min: 6,
-        max: 30,
+        min: getAttributeBase(Attributes.FINANCIAL),
+        max: getAttributeBase(Attributes.FINANCIAL) * QUESTION_MAX_SCORE,
         score: 0,
         low: 14,
         high: 25,
         name: "Financiero",
       },
       [Attributes.BURNOUT]: {
-        min: 10,
-        max: 50,
+        min: getAttributeBase(Attributes.BURNOUT),
+        max: getAttributeBase(Attributes.BURNOUT) * QUESTION_MAX_SCORE,
         score: 0,
         low: 24,
         high: 41,

@@ -58,6 +58,7 @@ export default function RootLayout({
                   src={FacebookIcon}
                   alt="facebook"
                   height={ICON_SIZE}
+                  width={ICON_SIZE}
                 />
               </a>
               <a
@@ -70,6 +71,7 @@ export default function RootLayout({
                   src={InstagramIcon}
                   alt="instagram"
                   height={ICON_SIZE}
+                  width={ICON_SIZE}
                 />
               </a>
               <a
@@ -82,6 +84,7 @@ export default function RootLayout({
                   src={LinkedInIcon}
                   alt="linkedin"
                   height={ICON_SIZE}
+                  width={ICON_SIZE}
                 />
               </a>
             </div>

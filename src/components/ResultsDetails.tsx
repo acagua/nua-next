@@ -51,9 +51,9 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
         <h1 className="text-4xl sm:text-2xl font-title font-bold p-4 text-nua-purple-main">
           {name}, aquí están tus resultados
         </h1>
-        <div className="flex flex-row">
+        <div className="flex flex-row mt-8">
           <SummarySection data={data} color={color} score={displayScore} />
-          <div className="border-l-2 border-nua-purple-main mx-4"></div>
+          <div className="border-l-2 border-nua-purple-main mx-12"></div>
           <BurnoutSection data={data} />
         </div>
         <div className="pt-16 flex flex-col justify-center">

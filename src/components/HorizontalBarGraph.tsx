@@ -6,6 +6,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { Results } from "@/types/types";
@@ -20,7 +21,8 @@ export const HorizontalBarGraph = ({ data }: Props) => {
     BarElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    Filler
   );
   ChartJS.defaults.font.size = 16;
 
