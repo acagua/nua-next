@@ -6,6 +6,12 @@ export const scoreColors = {
   high: "#5325a0",
 };
 
+export enum ScoreLevels {
+  LOW = 84,
+  MEDIUM = 161,
+  HIGH = 200,
+}
+
 export const attributesRefs: AttributeRefs[] = [
   {
     id: "7bc8d7e3-a30c-45d1-be3b-79e57118f6b5",
@@ -159,52 +165,52 @@ export const attributesRefs: AttributeRefs[] = [
   },
   {
     id: "7ea10a64-ffff-48f2-aaee-d73a3e64f47f",
-    positive: false,
+    positive: true,
     type: Attributes.BURNOUT,
   },
   {
     id: "c704d226-227a-4ace-969d-108ebee263e9",
-    positive: false,
+    positive: true,
     type: Attributes.BURNOUT,
   },
   {
     id: "b16b8f5f-8568-4a21-b876-e089c19aa0f7",
-    positive: false,
+    positive: true,
     type: Attributes.BURNOUT,
   },
   {
     id: "972cb31b-ce91-442d-9c27-3ef2de8c8aa7",
-    positive: false,
+    positive: true,
     type: Attributes.BURNOUT,
   },
   {
     id: "9f925f4d-9cd6-43f6-a39f-334d384ec8c8",
-    positive: false,
+    positive: true,
     type: Attributes.BURNOUT,
   },
   {
     id: "6b4e9791-5696-4075-bae8-93463f6b9870",
-    positive: false,
+    positive: true,
     type: Attributes.BURNOUT,
   },
   {
     id: "c20ef5cc-6a7b-45e9-b665-2698da83655f",
-    positive: false,
+    positive: true,
     type: Attributes.BURNOUT,
   },
   {
     id: "7f90b662-be55-4838-a995-74d717eb76a4",
-    positive: false,
+    positive: true,
     type: Attributes.BURNOUT,
   },
   {
     id: "fe2f0f04-88b3-4edb-b4c9-9a41ded25fb8",
-    positive: false,
+    positive: true,
     type: Attributes.BURNOUT,
   },
   {
     id: "483446fa-2828-4728-b2aa-de421a1849b8",
-    positive: false,
+    positive: true,
     type: Attributes.BURNOUT,
   },
 ];

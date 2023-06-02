@@ -3,31 +3,69 @@
 import { CategoryResult } from "./CategoryResult";
 import { Results } from "../types/types";
 import {
-  burnoutScoreMessage,
+  ScoreLevels,
   emotionalScoreMessage,
   financialScoreMessage,
   mentalScoreMessage,
   physicalScoreMessage,
   relationalScoreMessage,
+  scoreColors,
+  totalScoreMessage,
 } from "@/data/scores";
 import { Navbar } from "./Navbar";
-import { MainScore } from "./MainScore";
-import { RadarGraph } from "./RadarGraph";
+import { SummarySection } from "./SummarySection";
+import { BurnoutSection } from "./BurnoutSection";
 
 export const ResultsDetails = ({ data }: { data: Results }) => {
   const { name, attributes } = data;
 
+  const { relational, emotional, mental, physical, financial } = attributes;
+  const totalScore =
+    relational.score +
+    emotional.score +
+    mental.score +
+    physical.score +
+    financial.score;
+
+  const maxTotalScore =
+    relational.max + emotional.max + mental.max + physical.max + financial.max;
+
+  let color = scoreColors.low;
+  let totalMessage = totalScoreMessage.low;
+  let mainScoreTag = "Bajo";
+  if (totalScore > ScoreLevels.LOW) {
+    color = scoreColors.medium;
+    totalMessage = totalScoreMessage.medium;
+    mainScoreTag = "Medio";
+  }
+  if (totalScore > ScoreLevels.MEDIUM) {
+    color = scoreColors.high;
+    totalMessage = totalScoreMessage.high;
+    mainScoreTag = "Alto";
+  }
+  const displayScore = Math.floor((totalScore * 100) / maxTotalScore);
   return (
     <>
       <Navbar />
       <div className="px-32 py-20 sm:px-6 sm:py-8 flex flex-col w-[45vw] flex-grow justify-center items-center">
-        <MainScore name={name} attributes={attributes} />
+        <h1 className="text-4xl sm:text-2xl font-title font-bold p-4 text-nua-purple-main">
+          {name}, aquí están tus resultados
+        </h1>
+        <div className="flex flex-row">
+          <SummarySection data={data} color={color} score={displayScore} />
+          <div className="border-l-2 border-nua-purple-main mx-4"></div>
+          <BurnoutSection data={data} />
+        </div>
         <div className="pt-16 flex flex-col justify-center">
-          <CategoryResult
-            result={attributes.burnout}
-            scoreMessages={burnoutScoreMessage}
-            title={attributes.burnout.name}
-          />
+          <div className="text-justify py-8">
+            <h3 className="font-title font-bold text-2xl pb-3">
+              Puntaje General
+            </h3>
+            <p
+              className="text-md font-text font-thin"
+              dangerouslySetInnerHTML={{ __html: totalMessage }}
+            />
+          </div>
           <CategoryResult
             result={attributes.relational}
             scoreMessages={relationalScoreMessage}
@@ -53,7 +91,6 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
             scoreMessages={financialScoreMessage}
             title={attributes.financial.name}
           />
-          <RadarGraph data={data} />
         </div>
       </div>
     </>

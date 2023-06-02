@@ -1,29 +1,26 @@
-import React from "react";
 import {
   Chart as ChartJS,
-  ArcElement,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
   Tooltip,
   Legend,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
 } from "chart.js";
-import { Radar } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { Results } from "@/types/types";
 
 interface Props {
   data: Results;
 }
-export const RadarGraph = ({ data }: Props) => {
+export const HorizontalBarGraph = ({ data }: Props) => {
   ChartJS.register(
-    ArcElement,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
     Tooltip,
-    Legend,
-    RadialLinearScale,
-    PointElement,
-    LineElement,
-    Filler
+    Legend
   );
   ChartJS.defaults.font.size = 16;
 
@@ -36,17 +33,16 @@ export const RadarGraph = ({ data }: Props) => {
       attributes.mental.name,
       attributes.physical.name,
       attributes.financial.name,
-      // attributes.burnout.name,
     ],
     datasets: [
       {
         label: "Resultados",
         data: [
-          attributes.relational.score,
-          attributes.emotional.score,
-          attributes.mental.score,
-          attributes.physical.score,
-          attributes.financial.score,
+          (attributes.relational.score * 100) / attributes.relational.max,
+          (attributes.emotional.score * 100) / attributes.emotional.max,
+          (attributes.mental.score * 100) / attributes.mental.max,
+          (attributes.physical.score * 100) / attributes.physical.max,
+          (attributes.financial.score * 100) / attributes.financial.max,
         ],
         backgroundColor: "rgb(159,126,238, 0.5)",
         borderColor: "rgb(159,126,238)",
@@ -57,26 +53,18 @@ export const RadarGraph = ({ data }: Props) => {
     ],
   };
   const options = {
-    elements: {
-      line: {
-        borderWidth: 3,
-      },
-    },
+    indexAxis: "y" as const,
     responsive: true,
     plugins: {
       legend: {
-        labels: {
-          font: {
-            size: 21,
-          },
-        },
+        display: false,
       },
     },
   };
 
   return (
-    <div className="min-h-[20rem]">
-      <Radar data={dataRadar} options={options} />
+    <div className="min-h-[12rem] min-w-[25rem]">
+      <Bar data={dataRadar} options={options} />
     </div>
   );
 };
