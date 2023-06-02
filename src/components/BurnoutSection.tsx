@@ -16,7 +16,7 @@ export const BurnoutSection = ({ data }: { data: Results }) => {
   return (
     <div className="flex flex-col items-center basis-0 flex-grow shrink">
       <h2 className="text-3xl font-title text-nua-green-secondary">Burnout</h2>
-      <div className=" mt-8">
+      <div className="mt-8">
         <GaugeChart.default
           id="gauge-burnout"
           needleBaseColor="#9f7eee"
@@ -26,7 +26,7 @@ export const BurnoutSection = ({ data }: { data: Results }) => {
           nrOfLevels={5}
           colors={["#92d5ce", "#2f9ea2", "#9f7eee", "#5325a0", "#311868"]}
           textColor="transparent"
-          style={{ width: "40vw", maxWidth: "30rem" }}
+          style={{ maxWidth: "30rem", minWidth: "30rem" }}
         />
       </div>
       <p className="font-title text-3xl font-bold text-nua-purple-secondary mb-8">

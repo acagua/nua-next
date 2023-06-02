@@ -65,7 +65,7 @@ export const HorizontalBarGraph = ({ data }: Props) => {
   };
 
   return (
-    <div className="min-h-[12rem] min-w-[25rem]">
+    <div className="min-h-[12rem] min-w-[25rem] mb-8">
       <Bar data={dataRadar} options={options} />
     </div>
   );
