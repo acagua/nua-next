@@ -24,7 +24,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Vive Nua, vive felicidad </title>
-        <meta property="og:image" content="/public/logo.svg" />
+        <meta
+          name="description"
+          content="Valida cómo están tus habilidades de vida y el burnout."
+        />
+        <meta property="og:image" content="/logo.svg" />
         <meta property="og:image:type" content="image/svg" />
         <meta property="og:image:width" content="1024" />
         <meta property="og:image:height" content="1024" />

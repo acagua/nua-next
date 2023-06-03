@@ -1,6 +1,7 @@
 import { ResultsDetails } from "@/components/ResultsDetails";
 import { getScores } from "@/helpers/generateResults";
 import { TypeFormResponse } from "@/types/types";
+import { redirect } from "next/navigation";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const scores = await getResults(params.id);
@@ -35,7 +36,11 @@ async function getResults(id: string) {
       }
     );
     const data: TypeFormResponse = await response.json();
-    const scores = getScores(data.items[0].answers, id);
+    const answers = data.items[0].answers;
+    if (answers.length < 3) {
+      redirect("/");
+    }
+    const scores = getScores(answers, id);
     return scores;
   } catch (error) {
     console.log({ error });
