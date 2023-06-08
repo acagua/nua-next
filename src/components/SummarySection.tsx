@@ -17,7 +17,7 @@ export const SummarySection = ({
 }) => {
   return (
     <div className="flex flex-col items-center basis-0 flex-grow shrink">
-      <h2 className="text-3xl font-title text-nua-green-secondary">
+      <h2 className="text-3xl font-title font-bold text-nua-green-secondary">
         Habilidades de vida
       </h2>
       <div className="max-w-[18rem] sm:w-[12rem] m-8 ">

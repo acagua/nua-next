@@ -13,7 +13,7 @@ export const metadata = {
   description: "Valida cómo están tus habilidades de vida y el burnout.",
 };
 
-const ICON_SIZE = 40;
+const ICON_SIZE = 30;
 
 export default function RootLayout({
   children,

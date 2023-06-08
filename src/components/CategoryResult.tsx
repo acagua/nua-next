@@ -41,12 +41,14 @@ export const CategoryResult = ({
     <div className="p-8 mb-8 rounded-md border-2 border-nua-purple-aux text-justify w-full rounded-tr-[4rem] rounded-bl-[4rem]">
       <div className="flex justify-between" onClick={handleOnClick}>
         <span className="text-2xl font-title font-bold">{title}</span>
-        {/* <span
-          className={`mx-8 my-auto font-text text-xs font-bold ${tagStyles} px-2 py-1 rounded-md`}
+        <span
+          className={`mx-8 my-auto font-text text-xs font-bold ${tagStyles} px-2 py-1 rounded-md transition-all duration-500 ${
+            toggled ? "opacity-0" : ""
+          }`}
         >
-          {tagName}
-        </span> */}
-        <div className="ml-auto border-nua-purple-aux-transparent border-2 rounded-full p-1">
+          {Math.round((result.score / result.max) * 100)}%
+        </span>
+        <div className="ml-auto border-nua-purple-aux border-2 rounded-full p-1">
           <Image
             className={` ${
               toggled ? "" : "-rotate-90"

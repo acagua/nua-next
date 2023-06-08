@@ -48,13 +48,13 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
   return (
     <>
       <Navbar />
-      <div className="px-32 py-20 sm:px-6 sm:py-8 flex flex-col w-[45vw] flex-grow justify-center items-center">
+      <div className="px-44 py-20 sm:px-6 sm:py-8 flex flex-col w-[45vw] flex-grow justify-center items-center">
         <h1 className="text-4xl sm:text-2xl font-title font-bold p-4 text-nua-purple-main">
           {name}, aquí están tus resultados
         </h1>
         <div className="flex flex-row mt-8 sm:flex-col">
           <SummarySection data={data} color={color} score={displayScore} />
-          <div className="border-l-2 border-nua-purple-main mx-12"></div>
+          <div className="border-l border-nua-purple-aux-transparent mx-12"></div>
           <BurnoutSection data={data} />
         </div>
         <div className="pt-16 flex flex-col justify-center">

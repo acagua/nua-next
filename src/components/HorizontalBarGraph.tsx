@@ -40,11 +40,19 @@ export const HorizontalBarGraph = ({ data }: Props) => {
       {
         label: "Resultados",
         data: [
-          (attributes.relational.score * 100) / attributes.relational.max,
-          (attributes.emotional.score * 100) / attributes.emotional.max,
-          (attributes.mental.score * 100) / attributes.mental.max,
-          (attributes.physical.score * 100) / attributes.physical.max,
-          (attributes.financial.score * 100) / attributes.financial.max,
+          Math.round(
+            (attributes.relational.score * 100) / attributes.relational.max
+          ),
+          Math.round(
+            (attributes.emotional.score * 100) / attributes.emotional.max
+          ),
+          Math.round((attributes.mental.score * 100) / attributes.mental.max),
+          Math.round(
+            (attributes.physical.score * 100) / attributes.physical.max
+          ),
+          Math.round(
+            (attributes.financial.score * 100) / attributes.financial.max
+          ),
         ],
         backgroundColor: "rgb(159,126,238, 0.5)",
         borderColor: "rgb(159,126,238)",
