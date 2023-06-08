@@ -8,10 +8,10 @@ import { percentageToValue } from "@/helpers/getScoreValue";
 export const BurnoutSection = ({ data }: { data: Results }) => {
   const score = data.attributes.burnout.score / data.attributes.burnout.max;
   let scoreMessage = burnoutScoreMessage.low;
-  if (score > data.attributes.burnout.low) {
+  if (score > data.attributes.burnout.low / 100) {
     scoreMessage = burnoutScoreMessage.medium;
   }
-  if (score > data.attributes.burnout.high) {
+  if (score > data.attributes.burnout.high / 100) {
     scoreMessage = burnoutScoreMessage.high;
   }
   const gaugeColors = ["#92d5ce", "#2f9ea2", "#9f7eee", "#5325a0", "#311868"];
