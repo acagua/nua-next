@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <div className="flex flex-row h-full w-full flex-wrap justify-cente">
+      <div className="flex flex-row h-full w-full flex-wrap">
         <ResultsDetails data={scores} />
       </div>
     </>
