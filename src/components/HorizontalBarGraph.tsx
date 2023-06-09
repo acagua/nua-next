@@ -67,7 +67,7 @@ export const HorizontalBarGraph = ({ data }: Props) => {
     responsive: true,
     plugins: {
       legend: {
-        display: true,
+        display: false,
       },
     },
     scales: {
