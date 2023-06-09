@@ -14,8 +14,14 @@ oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
 export async function POST(request: Request) {
   const body = await request.json();
-
   const accessToken = (await oAuth2Client.getAccessToken()).token;
+  console.log(
+    accessToken,
+    process.env.REDIRECT_URI,
+    process.env.REFRESH_TOKEN,
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET
+  );
 
   const transporter = nodemailer.createTransport({
     service: process.env.EMAIL_SERVICE,
