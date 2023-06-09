@@ -63,7 +63,7 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
               Puntaje General
             </h3>
             <p
-              className="text-md font-text font-thin"
+              className="text-md font-text"
               dangerouslySetInnerHTML={{ __html: totalMessage }}
             />
           </div>
@@ -93,7 +93,11 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
             title={attributes.financial.name}
           />
         </div>
-        <EmailResults name={name} email={email} reportId={id} />
+        <EmailResults
+          name={name}
+          email={"af.cagua1011@gmail.com"}
+          reportId={id}
+        />
       </div>
     </>
   );

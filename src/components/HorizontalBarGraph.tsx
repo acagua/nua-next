@@ -38,7 +38,7 @@ export const HorizontalBarGraph = ({ data }: Props) => {
     ],
     datasets: [
       {
-        label: "Resultados",
+        label: "%",
         data: [
           Math.round(
             (attributes.relational.score * 100) / attributes.relational.max
@@ -67,7 +67,12 @@ export const HorizontalBarGraph = ({ data }: Props) => {
     responsive: true,
     plugins: {
       legend: {
-        display: false,
+        display: true,
+      },
+    },
+    scales: {
+      x: {
+        max: 100,
       },
     },
   };

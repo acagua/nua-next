@@ -82,9 +82,10 @@ export const CategoryResult = ({
               maxValue={100}
             />
           </div>
-          <p className="font-text font-thin flex-grow p-2 min-w-[15rem]">
-            {text}
-          </p>
+          <p
+            className="font-text flex-grow p-2 min-w-[15rem]"
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
         </div>
       </div>
     </div>
