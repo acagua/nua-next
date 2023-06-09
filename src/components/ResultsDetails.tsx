@@ -93,11 +93,7 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
             title={attributes.financial.name}
           />
         </div>
-        <EmailResults
-          name={name}
-          email={"af.cagua1011@gmail.com"}
-          reportId={id}
-        />
+        <EmailResults name={name} email={email} reportId={id} />
       </div>
     </>
   );

@@ -15,12 +15,9 @@ export const EmailResults = ({
       body: JSON.stringify({ name, email, reportId }),
     });
 
-    console.log({ response });
     if (response.ok) {
       setSent(true);
     }
-    const data = await response.json();
-    console.log({ data });
   };
   return (
     <>
