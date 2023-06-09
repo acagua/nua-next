@@ -51,17 +51,29 @@ export async function POST(request: Request) {
     },
   };
 
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-      return NextResponse.json(
-        { response: "error while sending email" },
-        { status: 400 }
-      );
-    } else {
-      console.log("Email sent: " + info.response);
-      return NextResponse.json({ response: "sent" }, { status: 200 });
-    }
+  await new Promise((resolve, reject) => {
+    // verify connection configuration
+    transporter.verify(function (error, success) {
+      if (error) {
+        console.log(error);
+        reject(error);
+      } else {
+        console.log("Server is ready to take our messages");
+        resolve(success);
+      }
+    });
   });
-  return NextResponse.json({ response: "none" }, { status: 200 });
+  await new Promise((resolve, reject) => {
+    // send mail
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.error(err);
+        reject(err);
+      } else {
+        console.log(info);
+        resolve(info);
+      }
+    });
+  });
+  return NextResponse.json({ response: "sent" }, { status: 200 });
 }
