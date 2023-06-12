@@ -38,7 +38,7 @@ export async function POST(request: Request) {
   });
 
   var mailOptions = {
-    from: process.env.EMAIL_FROM,
+    from: `Vive Nua <${process.env.EMAIL_FROM}>`,
     to: body.email,
     subject: "Nua - Aqui tienes tu Diagnóstico",
     text: `Hola ${body.name}!
