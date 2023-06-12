@@ -1,10 +1,11 @@
 import { ResultsDetails } from "@/components/ResultsDetails";
 import { getScores } from "@/helpers/generateResults";
-import { TypeFormResponse } from "@/types/types";
+import { Results, TypeFormResponse } from "@/types/types";
 import { redirect } from "next/navigation";
 
+const MAX_RETRIES = 3;
 export default async function Page({ params }: { params: { id: string } }) {
-  const scores = await getResults(params.id);
+  const scores = await getResults(params.id, MAX_RETRIES);
 
   if (scores === null) {
     return (
@@ -24,7 +25,10 @@ export default async function Page({ params }: { params: { id: string } }) {
   );
 }
 
-async function getResults(id: string) {
+async function getResults(
+  id: string,
+  retries: number
+): Promise<Results | null> {
   try {
     const response = await fetch(
       `https://api.typeform.com/forms/${process.env.NEXT_PUBLIC_FORM_ID}/responses?included_response_ids=${id}`,
@@ -37,13 +41,16 @@ async function getResults(id: string) {
     );
     const data: TypeFormResponse = await response.json();
     const answers = data.items[0].answers;
-    if (answers.length < 3) {
-      redirect("/");
-    }
+    console.log(JSON.stringify(data));
     const scores = getScores(answers, id);
     return scores;
   } catch (error) {
-    console.log({ error });
+    if (retries > 0) {
+      console.log("retrying");
+      console.log({ error });
+      return getResults(id, retries - 1);
+    }
+    console.log("fatal error");
     return null;
   }
 }
