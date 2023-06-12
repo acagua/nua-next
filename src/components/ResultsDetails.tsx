@@ -93,7 +93,18 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
             title={attributes.financial.name}
           />
         </div>
-        <EmailResults name={name} email={email} reportId={id} />
+        <section className="flex flex-row gap-8 justify-center items-center">
+          <EmailResults name={name} email={email} reportId={id} />
+          <a
+            href="https://www.vivenua.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <button className="p-4 text-xl font-text bg-nua-green-secondary text-nua-white-main rounded-md hover:cursor-pointer">
+              Quiero Suscribirme!
+            </button>
+          </a>
+        </section>
       </div>
     </>
   );
