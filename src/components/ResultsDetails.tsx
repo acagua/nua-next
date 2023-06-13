@@ -96,7 +96,7 @@ export const ResultsDetails = ({ data }: { data: Results }) => {
         <section className="flex flex-row gap-8 justify-center items-center">
           <EmailResults name={name} email={email} reportId={id} />
           <a
-            href="https://www.vivenua.com"
+            href="https://www.vivenua.com/producto"
             rel="noopener noreferrer"
             target="_blank"
           >
