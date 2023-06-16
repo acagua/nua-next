@@ -10,6 +10,8 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { Results } from "@/types/types";
+import { percentageToColor } from "@/helpers/getScoreValue";
+import { scoreColors, scoreColorsTransparent } from "@/data/scores";
 
 interface Props {
   data: Results;
@@ -27,6 +29,24 @@ export const HorizontalBarGraph = ({ data }: Props) => {
   ChartJS.defaults.font.size = 16;
 
   const { attributes } = data;
+
+  const barGraphBackgroundColors = {
+    relational: percentageToColor(
+      attributes.relational,
+      scoreColorsTransparent
+    ),
+    emotional: percentageToColor(attributes.emotional, scoreColorsTransparent),
+    mental: percentageToColor(attributes.mental, scoreColorsTransparent),
+    physical: percentageToColor(attributes.physical, scoreColorsTransparent),
+    financial: percentageToColor(attributes.financial, scoreColorsTransparent),
+  };
+  const barGraphBorderColors = {
+    relational: percentageToColor(attributes.relational, scoreColors),
+    emotional: percentageToColor(attributes.emotional, scoreColors),
+    mental: percentageToColor(attributes.mental, scoreColors),
+    physical: percentageToColor(attributes.physical, scoreColors),
+    financial: percentageToColor(attributes.financial, scoreColors),
+  };
 
   const dataRadar = {
     labels: [
@@ -54,8 +74,20 @@ export const HorizontalBarGraph = ({ data }: Props) => {
             (attributes.financial.score * 100) / attributes.financial.max
           ),
         ],
-        backgroundColor: "rgb(159,126,238, 0.5)",
-        borderColor: "rgb(159,126,238)",
+        backgroundColor: [
+          barGraphBackgroundColors.relational,
+          barGraphBackgroundColors.emotional,
+          barGraphBackgroundColors.mental,
+          barGraphBackgroundColors.physical,
+          barGraphBackgroundColors.financial,
+        ],
+        borderColor: [
+          barGraphBorderColors.relational,
+          barGraphBorderColors.emotional,
+          barGraphBorderColors.mental,
+          barGraphBorderColors.physical,
+          barGraphBorderColors.financial,
+        ],
         pointBorderColor: "rgb(83, 37, 160)",
         borderWidth: 2,
         fill: true,

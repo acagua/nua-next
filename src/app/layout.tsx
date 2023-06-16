@@ -46,7 +46,7 @@ export default function RootLayout({
             </a>
           </span>
           <span className="col-start-6">
-            <p className="font-title font-bold text-xl pb-2">Siguenos</p>
+            <p className="font-title font-bold text-xl pb-2">Síguenos</p>
             <div className="flex gap-2">
               <a
                 href="https://www.facebook.com/profile.php?id=100090857894017"

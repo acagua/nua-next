@@ -5,6 +5,11 @@ export const scoreColors = {
   medium: "#9f7eee",
   high: "#5325a0",
 };
+export const scoreColorsTransparent = {
+  low: "rgba(146,213,206, 0.5)",
+  medium: "rgba(159,126,238,0.5)",
+  high: "rba(83,37,160,0.5)",
+};
 
 export enum ScoreLevels {
   LOW = 105,
